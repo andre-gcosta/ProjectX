@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "Monorepo do Projeto X - Backend (NestJS) + Frontend (React + Vite)",
-  "workspaces": [
-    "frontend",
-    "backend"
-  ],
   "scripts": {
     "dev": "pnpm -r run dev",
     "dev:backend": "cd backend && pnpm run start:dev",

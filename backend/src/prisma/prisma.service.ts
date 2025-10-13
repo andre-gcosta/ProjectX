@@ -4,12 +4,16 @@ import { PrismaClient } from '@prisma/client';
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
   private readonly logger = new Logger(PrismaService.name);
-  private keepAliveInterval: NodeJS.Timeout;
+  private keepAliveInterval?: NodeJS.Timeout;
 
+  /**
+   * Conecta o Prisma ao NeonDB e inicia ping periódico
+   */
   async onModuleInit() {
     await this.$connect();
     this.logger.log('✅ Prisma conectado ao banco NeonDB (.pooler)');
 
+    // Ping periódico para manter a conexão viva
     this.keepAliveInterval = setInterval(async () => {
       try {
         await this.$queryRaw`SELECT 1`;
@@ -20,8 +24,14 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
     }, 10 * 60 * 1000); // 10 minutos
   }
 
+  /**
+   * Limpa o intervalo de ping e desconecta do Prisma
+   */
   async onModuleDestroy() {
-    clearInterval(this.keepAliveInterval);
+    if (this.keepAliveInterval) {
+      clearInterval(this.keepAliveInterval);
+    }
     await this.$disconnect();
+    this.logger.log('🛑 Prisma desconectado');
   }
 }

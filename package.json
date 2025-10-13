@@ -12,7 +12,8 @@
     "build:frontend": "pnpm --filter frontend run build",
     "lint": "pnpm --filter backend run lint && pnpm --filter frontend run lint",
     "format": "pnpm --filter backend run format && pnpm --filter frontend run format",
-    "clean": "rimraf backend/dist frontend/dist"
+    "clean": "rimraf backend/dist frontend/dist",
+    "vercel-build": "pnpm --filter backend run build && pnpm --filter frontend run build"
   },
   "engines": {
     "node": ">=18"

@@ -3,7 +3,6 @@
   "routes": [
     { "handle": "filesystem" },
     { "src": "/api/(.*)", "dest": "/backend/dist/main.js" },
-    { "src": "/(.*)", "dest": "/frontend/dist/$1" },
-    { "src": "/.*", "dest": "/frontend/dist/index.html" }
+    { "src": "/(.*)", "dest": "/frontend/dist/index.html" }
   ]
 }

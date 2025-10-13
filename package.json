@@ -5,13 +5,13 @@
   "description": "Monorepo do Projeto X - Backend (NestJS) + Frontend (React + Vite)",
   "scripts": {
     "dev": "pnpm -r run dev",
-    "dev:backend": "cd backend && pnpm run start:dev",
-    "dev:frontend": "cd frontend && pnpm run dev",
+    "dev:backend": "pnpm --filter backend run start:dev",
+    "dev:frontend": "pnpm --filter frontend run dev",
     "build": "pnpm -r run build",
-    "build:backend": "cd backend && pnpm run build",
-    "build:frontend": "cd frontend && pnpm run build",
-    "lint": "cd backend && pnpm run lint && cd ../frontend && pnpm run lint",
-    "format": "cd backend && pnpm run format && cd ../frontend && pnpm run format",
+    "build:backend": "pnpm --filter backend run build",
+    "build:frontend": "pnpm --filter frontend run build",
+    "lint": "pnpm --filter backend run lint && pnpm --filter frontend run lint",
+    "format": "pnpm --filter backend run format && pnpm --filter frontend run format",
     "clean": "rimraf backend/dist frontend/dist"
   },
   "engines": {

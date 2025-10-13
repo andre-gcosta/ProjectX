@@ -1,10 +1,21 @@
 {
-  "name": "projetox",
+  "name": "project-x-monorepo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "Monorepo do Projeto X - Backend (NestJS) + Frontend (React + Vite)",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run dev:backend & npm run dev:frontend",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "lint": "cd backend && npm run lint && cd ../frontend && npm run lint",
+    "format": "cd backend && npm run format && cd ../frontend && npm run format",
+    "clean": "rd /s /q backend\\dist frontend\\dist || true"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "repository": {
     "type": "git",

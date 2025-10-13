@@ -1,0 +1,23 @@
+# Node
+node_modules/
+pnpm-lock.yaml
+
+# Frontend build
+frontend/dist/
+
+# Backend build
+backend/dist/
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vite
+frontend/.vite/

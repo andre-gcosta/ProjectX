@@ -4,22 +4,25 @@
   "private": true,
   "description": "Monorepo do Projeto X - Backend (NestJS) + Frontend (React + Vite)",
   "workspaces": [
-    "backend",
-    "frontend"
+    "frontend",
+    "backend"
   ],
   "scripts": {
-    "dev": "npm run dev:backend & npm run dev:frontend",
-    "dev:backend": "cd backend && npm run start:dev",
-    "dev:frontend": "cd frontend && npm run dev",
-    "build": "npm run build:backend && npm run build:frontend",
-    "build:backend": "cd backend && npm run build",
-    "build:frontend": "cd frontend && npm run build",
-    "lint": "cd backend && npm run lint && cd ../frontend && npm run lint",
-    "format": "cd backend && npm run format && cd ../frontend && npm run format",
+    "dev": "pnpm -r run dev",
+    "dev:backend": "cd backend && pnpm run start:dev",
+    "dev:frontend": "cd frontend && pnpm run dev",
+    "build": "pnpm -r run build",
+    "build:backend": "cd backend && pnpm run build",
+    "build:frontend": "cd frontend && pnpm run build",
+    "lint": "cd backend && pnpm run lint && cd ../frontend && pnpm run lint",
+    "format": "cd backend && pnpm run format && cd ../frontend && pnpm run format",
     "clean": "rimraf backend/dist frontend/dist"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0"
   },
   "repository": {
     "type": "git",
@@ -30,8 +33,5 @@
   "bugs": {
     "url": "https://github.com/andre-gcosta/ProjectX/issues"
   },
-  "homepage": "https://github.com/andre-gcosta/ProjectX#readme",
-  "devDependencies": {
-    "rimraf": "^5.0.0"
-  }
+  "homepage": "https://github.com/andre-gcosta/ProjectX#readme"
 }

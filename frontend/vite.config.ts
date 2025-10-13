@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss()         // adiciona o plugin do Tailwind para Vite
+    tailwindcss()
   ],
   server: {
     proxy: {
@@ -13,6 +13,8 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'dist'
-  }
+    outDir: 'dist',      // OK
+    emptyOutDir: true    // limpa a pasta dist antes do build
+  },
+  base: './'             // garante que o build funcione no Vercel (rota relativa)
 });

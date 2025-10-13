@@ -1,15 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "backend/dist/main.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "frontend/dist/**",
-      "use": "@vercel/static"
-    }
-  ],
+  "buildCommand": "pnpm run vercel-build",
+  "outputDirectory": "frontend/dist",
   "routes": [
     { "src": "/api/(.*)", "dest": "backend/dist/main.js" },
     { "src": "/(.*)", "dest": "frontend/dist/$1" },

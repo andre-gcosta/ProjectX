@@ -10,5 +10,6 @@ async function bootstrap() {
     credentials: true,
   });  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   await app.listen(process.env.PORT || 3000);
+  console.log(`🚀 Backend Nest rodando na porta ${process.env.PORT || 3000}`);
 }
 bootstrap();

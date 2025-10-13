@@ -6,10 +6,9 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [
-    // Serve o frontend React
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '..', 'frontend', 'dist'),
-      exclude: ['/api*'], // não serve a pasta estática para rotas /api
+      rootPath: join(__dirname, '..', '..', 'frontend/dist'),
+      exclude: ['/api*']
     }),
   ],
   controllers: [AppController],

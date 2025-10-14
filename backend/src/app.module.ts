@@ -7,8 +7,8 @@ import { AppService } from './app.service';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '..', 'frontend/dist'), // aponta para build do frontend
-      exclude: ['/api*'], // mantém as rotas do backend separadas
+      rootPath: join(__dirname, '..', '..', 'frontend/dist'), // build do frontend
+      exclude: ['/api*'] // backend continua funcionando em /api
     }),
   ],
   controllers: [AppController],

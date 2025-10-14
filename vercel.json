@@ -1,22 +1,10 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "backend/src/main.ts",
-      "use": "@vercel/node",
-      "config": {
-        "zeroConfig": true
-      }
-    }
+    { "src": "backend/dist/main.js", "use": "@vercel/node" }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/src/main.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "frontend/dist/$1"
-    }
+    { "src": "/api/(.*)", "dest": "backend/dist/main.js" },
+    { "src": "/(.*)", "dest": "backend/dist/main.js" }
   ]
 }

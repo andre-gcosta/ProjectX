@@ -10,7 +10,7 @@
     "build:frontend": "pnpm --filter frontend run build",
     "build:backend": "pnpm --filter backend run build",
     "build": "pnpm run build:frontend && pnpm run build:backend",
-    "vercel-build": "pnpm run build"
+    "vercel-build": "pnpm --filter frontend run build"
   },
   "engines": {
     "node": ">=18"

@@ -6,9 +6,15 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '..', 'frontend/dist'),
-      exclude: ['/api/(.*)'], // ✅ sintaxe nova
+    // Serve o frontend (React build)
+    ServeStaticModule.forRootAsync({
+      useFactory: async () => [
+        {
+          rootPath: join(__dirname, '..', '..', 'frontend/dist'),
+          serveRoot: '/', // frontend disponível na raiz
+          exclude: ['/api*'], // não interfere nas rotas de API
+        },
+      ],
     }),
   ],
   controllers: [AppController],

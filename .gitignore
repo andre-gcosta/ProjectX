@@ -20,3 +20,6 @@ Thumbs.db
 
 # Vite
 frontend/.vite/
+
+
+**/.env*

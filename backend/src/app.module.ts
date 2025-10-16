@@ -1,20 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
   imports: [
-    // Serve o frontend (React build)
-    ServeStaticModule.forRootAsync({
-      useFactory: async () => [
-        {
-          rootPath: join(__dirname, '..', '..', 'frontend/dist'),
-          serveRoot: '/', // frontend disponível na raiz
-          exclude: ['/api*'], // não interfere nas rotas de API
-        },
-      ],
+    ConfigModule.forRoot({
+      isGlobal: true,
     }),
   ],
   controllers: [AppController],

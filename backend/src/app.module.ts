@@ -4,14 +4,19 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EntityModule } from './entity/entity.module';
 import { CapabilityModule } from './capabilities/capability.module';
+import { PrismaService } from './prisma/prisma.service';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     EntityModule,
     CapabilityModule,
+    AuthModule,
+    UserModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}
